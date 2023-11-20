@@ -8,7 +8,7 @@ tags:
   - Koopman
 ---
 
-This is a draft for my blog post based on the Paper "Transformers for modeling physical systems" by Geneva and Zabaras published in Neural Networks in 2022.
+This is a very rough first draft for my blog post based on the Paper "Transformers for modeling physical systems" by Geneva and Zabaras published in Neural Networks in 2022.
 This work is part of the seminar "Machine Learning in the Sciences" in the winter term 23/24 at the University of Stuttgart.
 
 ## TODO
@@ -26,10 +26,22 @@ What are the key findings and results (abstract-like fashion)
 
 ## The setup and problem formulation
 
+<details>
+<summary>TLDR</summary>
+<br>
+wip.
+</details>
+
 - general dynamical systems described by either ODE or PDE
 - formulation as time series problem via discretization
 
 ## Two stage learning
+
+<details>
+<summary>TLDR</summary>
+<br>
+wip.
+</details>
 
 Consider the two main training steps separately as they fulfill different needs and carried out one after another
 
@@ -52,6 +64,12 @@ Consider the two main training steps separately as they fulfill different needs 
 
 ## Example results for the Lorentz system
 
+<details>
+<summary>TLDR</summary>
+<br>
+wip.
+</details>
+
 How have transformers been used outside of this paper, what other architectures have emerged and how do they differ for this work? 
 
 Maybe compare to related work which looked at the same example problem or alternative architectures in general:
@@ -61,8 +79,17 @@ Maybe compare to related work which looked at the same example problem or altern
 
 ## Conclusion
 
+<details>
+<summary>TLDR</summary>
+<br>
+wip.
+</details>
+
 Maybe a short summary or just link back to the introduction
 
 ## Literature
+
+- Geneva paper
+- some Brunton/Kutz or other review paper on Koopman Theory, SINDy AE
 
 
