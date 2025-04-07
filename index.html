@@ -4,26 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jonathan Haag</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
       background: #f9f9f9;
       color: #111;
       line-height: 1.6;
+      overflow-x: hidden;
     }
     .container {
       max-width: 700px;
       margin: 0 auto;
       padding: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1.2s ease-out forwards;
+      text-align: left;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    h1, h2, h3, p, a {
+      position: relative;
+    }
+    h1 span, h2 span, h3 span, p span, a span {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    h1:hover span, h2:hover span, h3:hover span, p:hover span, a:hover span {
+      transform: translateY(-3px) rotate(2deg);
     }
     h1, h2 {
       font-weight: 600;
     }
     .intro {
-      text-align: center;
       margin-bottom: 2rem;
     }
     .intro h1 {
@@ -55,38 +75,40 @@
     .socials a {
       color: #333;
       font-size: 1.4rem;
+      transition: transform 0.2s ease;
     }
     .socials a:hover {
       color: #000;
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="intro">
-      <h1>Hello, my name is Jona :)</h1>
-      <p>I am a computational scientist and engineer, currently working on implementing hardware-aware learning algorithms on mixed-signal neuromorphic devices.</p>
-      <p>As my studies slowly come to an end, I am currently working on a research/mission statement that captures my intersts and goals for the future. I am looking forward to all kind of feedback and ideas for collaboration - please reach out to me.</p>
+      <h1><span>H</span><span>e</span><span>l</span><span>l</span><span>o</span> <span>:</span><span>)</span></h1>
+      <h3><span>M</span><span>y</span> <span>n</span><span>a</span><span>m</span><span>e</span> <span>i</span><span>s</span> <span>J</span><span>o</span><span>n</span><span>a</span><span>.</span></h3>
+      <p>I am a <span>c</span><span>o</span><span>m</span><span>p</span><span>u</span><span>t</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>a</span><span>l</span> <span>s</span><span>c</span><span>i</span><span>e</span><span>n</span><span>t</span><span>i</span><span>s</span><span>t</span> <span>a</span><span>n</span><span>d</span> <span>e</span><span>n</span><span>g</span><span>i</span><span>n</span><span>e</span><span>e</span><span>r</span>, currently working on implementing hardware-aware learning algorithms on mixed-signal neuromorphic devices.</p>
+      <p>As my studies slowly come to an end, I am currently working on a research/mission statement that captures my interests and goals for the future. I am looking forward to all kind of feedback and ideas for collaboration - please reach out to me.</p>
       <div class="links">
         <a href="20250303_CV.pdf" target="_blank">CV</a>
       </div>
     </div>
 
     <div class="section">
-      <h2>I sometimes write a bit on Substack...</h2>
-      <!-- Substack Embed Example -->
-      <iframe src="https://beobachtungundpartizipation.substack.com/?r=456bdz&utm_campaign=pub-share-checklist" frameborder="0" scrolling="no"></iframe>
+      <h2><span>I</span> <span>s</span><span>o</span><span>m</span><span>e</span><span>t</span><span>i</span><span>m</span><span>e</span><span>s</span> <span>w</span><span>r</span><span>i</span><span>t</span><span>e</span> <span>a</span> <span>b</span><span>i</span><span>t</span> <span>o</span><span>n</span> <span>S</span><span>u</span><span>b</span><span>s</span><span>t</span><span>a</span><span>c</span><span>k</span>...</h2>
+      <iframe src="https://beobachtungundpartizipation.substack.com/" frameborder="0" scrolling="no"></iframe>
     </div>
 
     <div class="section">
-      <h2>On top of that, you can find me on the following:</h2>
+      <h2><span>B</span><span>u</span><span>t</span> <span>y</span><span>o</span><span>u</span> <span>c</span><span>a</span><span>n</span> <span>a</span><span>l</span><span>s</span><span>o</span> <span>f</span><span>i</span><span>n</span><span>d</span> <span>m</span><span>e</span> <span>o</span><span>n</span> <span>t</span><span>h</span><span>e</span> <span>f</span><span>o</span><span>l</span><span>l</span><span>o</span><span>w</span><span>i</span><span>n</span><span>g</span>:</h2>
       <div class="socials">
         <a href="https://github.com/jonahaag" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://scholar.google.com/citations?user=chz94ewAAAAJ&hl=de" target="_blank"><i class="fas fa-graduation-cap"></i></a>
         <a href="https://www.linkedin.com/in/jonathan-haag-a52067204/" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="https://www.goodreads.com/user/show/149737147-jona" target="_blank"><i class="fas fa-book"></i></a>
         <a href="https://instagram.com/ichglaubeshaagt" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
+      </div>
     </div>
   </div>
 </body>
