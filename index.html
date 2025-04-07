@@ -48,16 +48,6 @@
       transition: transform 0.2s ease;
     }
 
-    .links a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: #444;
-    }
-
-    .links a:hover {
-      color: #000;
-    }
-
     .section {
       margin-bottom: 2rem;
     }
@@ -85,62 +75,104 @@
       gap: 1rem;
       margin-top: 1rem;
     }
-
+    a {
+        color: #000;
+        text-decoration: None;
+        
+    }
+    a:hover {
+        font-size: 0.99rem;
+    }
     .socials a {
       color: #333;
       font-size: 1.4rem;
       transition: transform 0.2s ease;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+      animation-delay: 10s; /* or tweak as needed */
     }
 
     .socials a:hover {
       color: #000;
       transform: scale(1.05);
     }
+    .substack-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
   <div class="container typewriter" id="content">
     <h1>Hello (:</h1>
-    <h3>My name is Jona.</h3>
-    <p>I am a computational scientist and engineer, currently working on implementing hardware-aware learning algorithms on mixed-signal neuromorphic devices.</p>
-    <p>As my studies slowly come to an end, I am currently working on a research/mission statement that captures my interests and goals for the future. I am looking forward to all kind of feedback and ideas for collaboration - please reach out to me.</p>
-    <div class="links">
-      <a href="20250303_CV.pdf" target="_blank">CV</a>
-      <a href="mission_statement.pdf" target="_blank">Statement</a>
-    </div>
-    <p>I sometimes write a bit on Substack about a variety of topics (mostly, but not exclusively in German)</p>
-    <div class="substack-container">
-      <iframe src="https://beobachtungundpartizipation.substack.com/embed" frameborder="0" scrolling="no"></iframe>
-    </div>
+    <h3>My name is <b>Jona</b>.</h3>
+    <p>I am a <b>computational scientist and engineer</b>, currently working on implementing hardware-aware learning algorithms on mixed-signal neuromorphic devices at the Institute of Neuroinformatics at UZH/ETH Zurich.</p>
+    <p>In the past, I have worked on a, b, and c, and am generally interested in x, y, and z. For more details also see my <a href="20250303_CV.pdf" target="_blank" ><b>CV</b></a>.</p>
+    <p>As my studies slowly come to an end, I am working on a <a href="mission_statement.pdf" target="_blank"><b>research/mission statement</b></a> that captures my interests and goals for the future at this point in time. I am looking forward to all kind of feedback and ideas for collaboration - please reach out to me.</p>
+    
+    <p>I sometimes like to write a bit (mostly, but not exclusively, in German) on a variety of topics loosely related to the interplay of technology and society/culture in the past and future and my personal impressions of slowly turning adult in this day and age. You can directly subscribe to my Substack to receive future posts via email</p>
+      <div class="substack-wrapper">
+        <div id="custom-substack-embed"></div> <!-- 👈 target div -->
+      
+        <script>
+          window.CustomSubstackWidget = {
+            substackUrl: "beobachtungundpartizipation.substack.com",
+            placeholder: "you@example.com",
+            buttonText: "Subscribe",
+            theme: "custom",
+            colors: {
+              primary: "#000000",
+              input: "#FFFFFF",
+              email: "#000000",
+              text: "#FFFFFF",
+            },
+            target: "#custom-substack-embed" // 👈 important!
+          };
+        </script>
+        <script src="https://substackapi.com/widget.js" async></script>
+      </div>
+
     <p>but you can also find me on the following</p>
-    <div class="socials">
-      <a href="https://github.com/jonahaag" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://scholar.google.com/citations?user=chz94ewAAAAJ&hl=de" target="_blank"><i class="fas fa-graduation-cap"></i></a>
-      <a href="https://www.linkedin.com/in/jonathan-haag-a52067204/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://www.goodreads.com/user/show/149737147-jona" target="_blank"><i class="fas fa-book"></i></a>
-      <a href="https://instagram.com/ichglaubeshaagt" target="_blank"><i class="fab fa-instagram"></i></a>
-    </div>
+      <div class="socials">
+        <a href="https://github.com/jonahaag" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://scholar.google.com/citations?user=chz94ewAAAAJ&hl=de" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+        <a href="https://www.linkedin.com/in/jonathan-haag-a52067204/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://beobachtungundpartizipation.substack.com" target="_blank"><i class="fas fa-paragraph"></i></a>
+        <a href="https://www.goodreads.com/user/show/149737147-jona" target="_blank"><i class="fas fa-book"></i></a>
+        <a href="https://instagram.com/ichglaubeshaagt" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+
   </div>
 
-  <script>
-    // Automatically wrap each letter in span for animation
-    const container = document.getElementById("content");
-    const children = Array.from(container.childNodes);
+<script>
+  const typewriterContainers = document.querySelectorAll(".typewriter");
+  let delay = 0;
 
-    let delay = 0;
-    children.forEach(node => {
-      if (node.nodeType === Node.ELEMENT_NODE && node.innerText) {
-        const text = node.innerText;
-        node.innerHTML = ''; // Clear existing content
-        for (let i = 0; i < text.length; i++) {
-          const span = document.createElement('span');
-          span.textContent = text[i];
-          span.style.animationDelay = `${delay}s`;
-          node.appendChild(span);
-          delay += 0.02;
-        }
+  typewriterContainers.forEach(container => {
+    const elements = container.querySelectorAll("p, h1, h3, a"); // include only relevant
+
+    elements.forEach(el => {
+      const text = el.innerText;
+      if (!text.trim()) return;
+
+      el.innerHTML = ""; // clear
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement("span");
+        span.innerHTML = text[i] === " " ? "&nbsp;" : text[i];
+        span.style.opacity = 0;
+        span.style.animation = "typingLetter 0.02s ease-in forwards";
+        span.style.animationDelay = `${delay}s`;
+        span.style.display = "inline-block";
+        el.appendChild(span);
+        delay += 0.01;
       }
     });
-  </script>
+  });
+</script>
+
+
 </body>
 </html>
